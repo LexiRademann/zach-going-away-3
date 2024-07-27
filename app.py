@@ -30,7 +30,7 @@ service = build('sheets', 'v4', credentials=credentials)
 def index():
     return render_template('index.html')
 
-@app.route('/submit', methods=['POST'])
+@app.route('/api/submit', methods=['POST'])
 def submit():
     name = request.form['name']
     email = request.form['email']

@@ -31,7 +31,7 @@
                 <h2>RSVP Form</h2>
                 <div class="event-grid">
                     <div class="event-card">
-                        <form id="rsvp-form" action="/submit" method="POST">
+                        <form id="rsvp-form">
                             <input type="text" id="name" name="name" placeholder="Full Name" required>
                             <input type="email" id="email" name="email" placeholder="Email Address" required>
                             <select id="attendance" name="attendance" required>
@@ -69,6 +69,31 @@
             } else {
                 customEvents.style.display = 'none';
             }
+        });
+    </script>
+    <script>
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = new FormData(this);
+            
+            fetch('/api/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('RSVP submitted successfully!');
+                    this.reset();
+                } else {
+                    alert('Error submitting RSVP: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the RSVP.');
+            });
         });
     </script>
 </body>
