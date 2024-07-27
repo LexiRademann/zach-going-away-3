@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zach's Going Away Weekend</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bg-video" poster="images/fallback-bg.jpg">
+        <source src="images/chicago-vid-mobile.mp4" type="video/mp4" media="(max-width: 767px)">
+        <source src="images/chicago-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- html-section-1-main-container -->
+    <div class="container">
+        <!-- html-section-2-header -->
+        <header>
+            <h1>Zach's Going Away Weekend</h1>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Home</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="rsvp.html">RSVP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- html-section-3-main-content -->
+        <main>
+            <!-- html-section-3-1-intro -->
+            <section id="intro">
+                <h2>Join us in Chicago!</h2>
+                <p>Let's celebrate Zach's new adventure with an <span class="highlight">unforgettable weekend</span>!</p>
+            </section>
+
+            <!-- html-section-3-2-events -->
+            <section id="events">
+                <h2>Weekend Schedule</h2>
+                <div class="event-grid">
+                    <div class="event-card">
+                        <h3>Passenger Concert</h3>
+                        <p class="event-date">Thursday, August 29, 2024</p>
+                        <p class="event-time">Doors: 6:00 PM | Show: 7:30 PM</p>
+                        <p class="event-venue">Venue: Riviera Theatre</p>
+                        <p class="event-address">4746 N Racine Avenue, Chicago, IL 60640</p>
+                        <p class="event-description">Kick off Zach's farewell weekend with an unforgettable night of music by Passenger!</p>
+                        <a href="https://www.axs.com/events/525824/passenger-tickets?aff=usaffsongkick" class="event-link" target="_blank" rel="noopener noreferrer">Get Tickets</a>
+                    </div>
+                    <div class="event-card">
+                        <h3>Critical Mass Bike Ride</h3>
+                        <p class="event-date">Friday, August 30, 2024</p>
+                        <p class="event-time">6:00 PM - 8:00 PM</p>
+                        <p class="event-venue">Starting Point: Daley Plaza</p>
+                        <p class="event-description">Experience Chicago on two wheels with this fun group ride through the city streets.</p>
+                    </div>
+                    <div class="event-card">
+                        <h3>Going Away Party</h3>
+                        <p class="event-date">Saturday, August 31, 2024</p>
+                        <p class="event-time">7:00 PM - Late</p>
+                        <p class="event-venue">Location: Hubbard Place Rooftop</p>
+                        <p class="event-description">Celebrate Zach's new adventure with food, drinks, and great company!</p>
+                        <a href="rsvp.html" class="event-link">RSVP Now</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- html-section-4-footer -->
+        <footer>
+            <p>&copy; 2024 Zach's Going Away Weekend</p>
+        </footer>
+    </div>
+
+</body>
+</html>

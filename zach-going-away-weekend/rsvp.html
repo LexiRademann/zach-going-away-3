@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Zach's Going Away Weekend</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bg-video" poster="images/fallback-bg.jpg">
+        <source src="images/chicago-vid-mobile.mp4" type="video/mp4" media="(max-width: 767px)">
+        <source src="images/chicago-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <header>
+            <h1>RSVP for Zach's Going Away Weekend</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="rsvp.html">RSVP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="rsvp">
+                <h2>RSVP Form</h2>
+                <div class="event-grid">
+                    <div class="event-card">
+                        <form id="rsvp-form">
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <select id="attendance" name="attendance" required>
+                                <option value="">Select events you'll attend</option>
+                                <option value="all">All events</option>
+                                <option value="concert">Passenger Concert only</option>
+                                <option value="bike">Critical Mass Bike Ride only</option>
+                                <option value="party">Going Away Party only</option>
+                                <option value="custom">Custom selection</option>
+                            </select>
+                            <div id="custom-events" style="display: none;">
+                                <label><input type="checkbox" name="events" value="concert"> Passenger Concert</label>
+                                <label><input type="checkbox" name="events" value="bike"> Critical Mass Bike Ride</label>
+                                <label><input type="checkbox" name="events" value="party"> Going Away Party</label>
+                            </div>
+                            <textarea id="message" name="message" placeholder="Any additional messages or dietary restrictions?"></textarea>
+                            <button type="submit">Submit RSVP</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Zach's Going Away Weekend</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('attendance').addEventListener('change', function() {
+            var customEvents = document.getElementById('custom-events');
+            if (this.value === 'custom') {
+                customEvents.style.display = 'block';
+            } else {
+                customEvents.style.display = 'none';
+            }
+        });
+
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            alert('Thank you for your RSVP! We look forward to seeing you.');
+        });
+    </script>
+</body>
+</html>
