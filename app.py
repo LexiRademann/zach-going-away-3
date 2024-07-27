@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["https://lexirademann.github.io"])
+CORS(app, origins="*")  # Allow all origins
 
 # Load the credentials from the environment variable
 credentials_json = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
