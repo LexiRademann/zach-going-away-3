@@ -31,7 +31,7 @@
                 <h2>RSVP Form</h2>
                 <div class="event-grid">
                     <div class="event-card">
-                        <form id="rsvp-form">
+                        <form id="rsvp-form" action="/submit" method="POST">
                             <input type="text" id="name" name="name" placeholder="Full Name" required>
                             <input type="email" id="email" name="email" placeholder="Email Address" required>
                             <select id="attendance" name="attendance" required>
@@ -69,12 +69,6 @@
             } else {
                 customEvents.style.display = 'none';
             }
-        });
-
-        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to a server
-            alert('Thank you for your RSVP! We look forward to seeing you.');
         });
     </script>
 </body>
