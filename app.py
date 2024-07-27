@@ -6,6 +6,7 @@ from googleapiclient.discovery import build
 from flask_cors import CORS
 import sys
 from flask import jsonify
+import traceback
 
 app = Flask(__name__)
 CORS(app, origins="*")  # Allow all origins
@@ -22,7 +23,8 @@ try:
         scopes=['https://www.googleapis.com/auth/spreadsheets']
     )
 except Exception as e:
-    print(f"Error loading credentials: {str(e)}", file=sys.stderr)
+    error_message = f"Error loading credentials: {str(e)}\n{traceback.format_exc()}"
+    print(error_message, file=sys.stderr)
     raise
 
 # Replace 'your_sheet_id' with the ID of your Google Sheet
@@ -60,8 +62,13 @@ def submit():
         ).execute()
         return jsonify({"success": True, "message": "RSVP submitted successfully"}), 200
     except Exception as e:
-        print(f"An error occurred: {str(e)}", file=sys.stderr)
-        return jsonify({"success": False, "message": str(e)}), 500
+        error_message = f"An error occurred: {str(e)}\n{traceback.format_exc()}"
+        print(error_message, file=sys.stderr)
+        return jsonify({"success": False, "message": error_message}), 500
+
+@app.route('/test')
+def test():
+    return jsonify({"message": "Flask app is running"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
