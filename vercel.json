@@ -11,5 +11,14 @@
       "src": "/(.*)",
       "dest": "app.py"
     }
+  ],
+  "includeFiles": [
+    "app.py",
+    "templates/**",
+    "static/**",
+    "css/**",
+    "js/**",
+    "images/*.jpg",
+    "images/*.png"
   ]
 }
